@@ -1,0 +1,75 @@
+﻿@model ProductManagement.Context.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemSupplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemSupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemStock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Items" ,new { Model.ItemID, Model.ItemName, Model.ItemDesc, Model.ItemSupplier, Model.ItemBrand, Model.ItemCategory, Model.ItemPrice, Model.ItemStock })" class="btn btn-primary">Edit</a>
+    <a href="@Url.Action("Delete", new { id=Model.ItemID })" class="btn btn-danger">Delete</a>
+    <a href="ItemsList" class="btn btn-warning">Back to View</a>
+</p>

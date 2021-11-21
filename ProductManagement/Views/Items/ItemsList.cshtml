@@ -1,0 +1,42 @@
+﻿@model  List<ProductManagement.Context.Item>
+
+@{
+    ViewBag.Title = "ItemsList";
+}
+
+<br />
+<a href="Items" class="btn btn-warning">Add New Item</a>
+
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Item Name</th>
+        <th>Item Description</th>
+        <th>Item Supplier</th>
+        <th>Item Brand</th>
+        <th>Item Category</th>
+        <th>Item Price</th>
+        <th>Item Stock</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ItemName</td>
+            <td>@item.ItemDesc</td>
+            <td>@item.ItemSupplier</td>
+            <td>@item.ItemBrand</td>
+            <td>@item.ItemCategory</td>
+            <td>@item.ItemPrice</td>
+            <td>@item.ItemStock</td>
+            <td>
+                <a href="@Url.Action("Items" ,new { item.ItemID, item.ItemName, item.ItemDesc, item.ItemSupplier, item.ItemBrand, item.ItemCategory,item.ItemPrice, item.ItemStock })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Details" ,new { item.ItemID, item.ItemName, item.ItemDesc, item.ItemSupplier, item.ItemBrand, item.ItemCategory,item.ItemPrice, item.ItemStock })" class="btn btn-primary">Details</a>
+                <a href="@Url.Action("Delete", new { id=item.ItemID })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

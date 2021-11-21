@@ -1,0 +1,64 @@
+﻿@model ProductManagement.Context.Item
+
+@{
+    ViewBag.Title = "Items";
+}
+<style>
+    .error {
+        color:firebrick;
+    }
+</style>
+
+<h2>Items</h2>
+
+@using (Html.BeginForm("AddItems", "Items", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ItemID)
+            <label>Item Name</label>
+            @Html.ValidationMessageFor(x => x.ItemName,"", new{@class="error"})
+            @Html.TextBoxFor(x => x.ItemName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Item Description</label>
+            @Html.ValidationMessageFor(x => x.ItemDesc, "", new { @class = "error" })
+            @Html.TextAreaFor(x => x.ItemDesc, new { @class = "form-control", @rows = "10" })
+        </div>
+        <div class="form-group">
+            <label>Item Supplier</label>
+            @Html.ValidationMessageFor(x => x.ItemSupplier, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ItemSupplier, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Item Brand</label>
+            @Html.ValidationMessageFor(x => x.ItemBrand, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ItemBrand, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Item Category</label>
+            @Html.ValidationMessageFor(x => x.ItemCategory, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ItemCategory, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Item Price</label>
+            @Html.ValidationMessageFor(x => x.ItemPrice, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ItemPrice, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Item Stock</label>
+            @Html.ValidationMessageFor(x => x.ItemStock, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ItemStock, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Cancel</button>
+            <a href="/Items/ItemsList" class="btn btn-warning">Back to View</a>
+        </div>
+    </div>
+}
+
+
+
+
